@@ -15,6 +15,27 @@ export default {
   computed: {
     displayData() {
       return this.countyData.attributes;
+    },
+    gravityOfTheSituation() {
+      let gravity = this.displayData.cases7_per_100k;
+      if (gravity <= 5) {
+        return 0;
+      } else if (gravity > 5 && gravity <= 25) {
+        return 1;
+      } else if (gravity > 25 && gravity <= 50) {
+        return 2;
+      } else if (gravity > 50 && gravity <= 100) {
+        return 3;
+      } else if (gravity > 100 && gravity <= 250) {
+        return 4;
+      } else if (gravity > 250 && gravity <= 500) {
+        return 5;
+      } else if (gravity > 500) {
+        return 6;
+      } else {
+        return "";
+      }
+    },
     }
   }
 };
