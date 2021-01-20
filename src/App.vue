@@ -1,6 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>Donkey Corona Dashboard</h1>
+  <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
 </template>
 
 <script>
@@ -27,8 +29,13 @@ export default {
       })
       .catch(e => console.log(e));
   },
+  computed: {
+    lastUpdate() {
+      if (!this.coronaFeatures[0]) return;
+      return this.coronaFeatures[0].attributes.last_update;
+    }
   }
-}
+};
 </script>
 
 <style>
