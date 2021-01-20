@@ -77,4 +77,12 @@ h1 {
 h2 {
   margin: 0 0 0.5rem 0;
 }
+#cards-container {
+  width: 500px;
+}
+@media (max-width: 500px) {
+  #cards-container {
+    width: 100%;
+  }
+}
 </style>
