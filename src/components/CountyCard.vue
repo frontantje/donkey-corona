@@ -63,9 +63,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .county-card {
-  max-width: 400px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 15px;
+  padding: 0 2rem 0 2rem;
+  margin-bottom: 1rem;
 }
 </style>

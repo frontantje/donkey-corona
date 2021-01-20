@@ -55,4 +55,12 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+#cards-container {
+  width: 500px;
+}
+@media (max-width: 500px) {
+  #cards-container {
+    width: 100%;
+  }
+}
 </style>
