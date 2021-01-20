@@ -1,6 +1,8 @@
 <template>
   <h1>Donkey Corona Dashboard</h1>
+  <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
   <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
+
   <div id="cards-container" v-if="coronaFeatures">
     <CountyCard
       v-for="feature in coronaFeatures"
@@ -8,6 +10,10 @@
       :key="feature.attributes.OBJECTID"
     />
   </div>
+  <span
+    >Quelle:
+    <a href="https://npgeo-corona-npgeo-de.hub.arcgis.com/">NPGEO-DE</a></span
+  >
 </template>
 
 <script>
@@ -54,13 +60,21 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 #cards-container {
   width: 500px;
+  margin: 2rem 0 2rem 0;
 }
 @media (max-width: 500px) {
   #cards-container {
     width: 100%;
   }
+}
+h1 {
+  margin: 0 0 1rem 0;
+}
+h2 {
+  margin: 0 0 0.5rem 0;
 }
 </style>
