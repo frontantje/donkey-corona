@@ -1,5 +1,5 @@
 <template>
-  <div class="county-card">
+  <div class="county-card" :style="styleObject">
     <h3>{{ displayData.county }}: {{ displayData.cases7_per_100k_txt }}</h3>
   </div>
 </template>
@@ -36,6 +36,25 @@ export default {
         return "";
       }
     },
+    styleObject() {
+      switch (this.gravityOfTheSituation) {
+        case 0:
+          return { "background-color": "rgb(255, 252, 205)" };
+        case 1:
+          return { "background-color": "rgb(255, 243, 128)" };
+        case 2:
+          return { "background-color": "rgb(255, 181, 52" };
+        case 3:
+          return { "background-color": "rgb(212, 54, 36)" };
+        case 4:
+          return { "background-color": "rgb(149, 18, 20)", color: "white" };
+        case 5:
+          return { "background-color": "rgb(103, 18, 18)", color: "white" };
+        case 6:
+          return { "background-color": "rgb(221, 0, 133)", color: "white" };
+        default:
+          return {};
+      }
     }
   }
 };
