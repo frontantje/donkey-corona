@@ -5,11 +5,28 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import * as rkiApi from "./API/rki.js";
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  data() {
+    return {
+      coronaFeatures: []
+    };
+  },
+  mounted() {
+    rkiApi
+      .fetchRelevantData()
+      .then(res => {
+        console.log(res);
+        this.coronaFeatures = res.data.features.sort(
+          (a, b) => a.attributes.cases7_per_100k - b.attributes.cases7_per_100k
+        );
+      })
+      .catch(e => console.log(e));
+  },
   }
 }
 </script>
