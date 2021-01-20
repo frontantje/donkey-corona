@@ -1,18 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
   <h1>Donkey Corona Dashboard</h1>
   <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
+  <div id="cards-container" v-if="coronaFeatures">
+    <CountyCard
+      v-for="feature in coronaFeatures"
+      :countyData="feature"
+      :key="feature.attributes.OBJECTID"
+    />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CountyCard from "./components/CountyCard.vue";
 import * as rkiApi from "./API/rki.js";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    CountyCard
+  },
   data() {
     return {
       coronaFeatures: []
