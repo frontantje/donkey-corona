@@ -104,4 +104,13 @@ export default {
   font-size: 14px;
   text-align: left;
 }
+@media (max-width: 400px) {
+  .county-card {
+    padding: 0 0.5rem 0 0.5rem;
+  }
+  .details-box {
+    min-width: 45%;
+  }
+
+}
 </style>

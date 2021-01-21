@@ -96,5 +96,12 @@ h2 {
   #cards-container {
     width: 100%;
   }
+  #app {
+    margin-top: 0;
+  }
+  h2,
+  h3 {
+    font-size: 18px;
+  }
 }
 </style>
