@@ -8,6 +8,8 @@
       v-for="feature in coronaFeatures"
       :countyData="feature"
       :key="feature.attributes.OBJECTID"
+      :showDetailsFor="showDetailsFor"
+      @clicked="openDetails"
     />
   </div>
   <span
@@ -27,7 +29,8 @@ export default {
   },
   data() {
     return {
-      coronaFeatures: []
+      coronaFeatures: [],
+      showDetailsFor: null
     };
   },
   mounted() {
@@ -40,6 +43,15 @@ export default {
         );
       })
       .catch(e => console.log(e));
+  },
+  methods: {
+    openDetails(id) {
+      if (id === this.showDetailsFor) {
+        this.showDetailsFor = null;
+      } else {
+        this.showDetailsFor = id;
+      }
+    }
   },
   computed: {
     lastUpdate() {

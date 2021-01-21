@@ -1,5 +1,9 @@
 <template>
-  <div class="county-card" :style="styleObject">
+  <div
+    class="county-card"
+    :style="styleObject"
+    @click="$emit('clicked', displayData.OBJECTID)"
+  >
     <h3>{{ displayData.county }}: {{ displayData.cases7_per_100k_txt }}</h3>
   </div>
 </template>
@@ -10,11 +14,19 @@ export default {
   props: {
     countyData: {
       type: Object
+    },
+    showDetailsFor: {
+      type: Number,
+      required: false,
+      default: null
     }
   },
   computed: {
     displayData() {
       return this.countyData.attributes;
+    },
+    showDetails() {
+      return this.showDetailsFor === this.displayData.OBJECTID;
     },
     gravityOfTheSituation() {
       let gravity = this.displayData.cases7_per_100k;
@@ -70,5 +82,9 @@ export default {
   border-radius: 15px;
   padding: 0 2rem 0 2rem;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+.county-card:hover {
+  transform: scale(1.01);
 }
 </style>
