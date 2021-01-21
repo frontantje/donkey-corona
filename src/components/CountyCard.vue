@@ -5,6 +5,12 @@
     @click="$emit('clicked', displayData.OBJECTID)"
   >
     <h3>{{ displayData.county }}: {{ displayData.cases7_per_100k_txt }}</h3>
+    <div class="details-box" v-if="showDetails">
+      <p>Fälle gesamt: {{ displayData.cases }}</p>
+      <p>Neuinfektionen 7 T: {{ displayData.cases7_lk }}</p>
+      <p>Fälle/100k EW: {{ Math.round(displayData.cases_per_100k) }}</p>
+      <p>Todesfälle: {{ displayData.deaths }}</p>
+    </div>
   </div>
 </template>
 
@@ -86,5 +92,16 @@ export default {
 }
 .county-card:hover {
   transform: scale(1.01);
+}
+.details-box {
+  background-color: white;
+  border-radius: 15px;
+  padding: 0.5rem;
+  margin: 1rem 0 1rem 0;
+}
+.details-box p {
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
 }
 </style>
