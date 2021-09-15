@@ -100,6 +100,7 @@ export default {
   margin: 1rem 0 1rem 0;
 }
 .details-box p {
+  color: black;
   margin: 0;
   font-size: 14px;
   text-align: left;
@@ -111,6 +112,5 @@ export default {
   .details-box {
     min-width: 45%;
   }
-
 }
 </style>
