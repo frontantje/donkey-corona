@@ -3,6 +3,7 @@
     <div id="input-area">
       <input
         v-model="searchInput"
+        placeholder="Suche nach Landkreisen/Regionen"
         id="county-search-input"
         type="text"
       /><button @click="$emit('close-search')" class="grey-btn grow">
