@@ -11,6 +11,7 @@
         :key="county.OBJECTID"
         :showDetailsFor="showDetailsFor"
         @clicked="openDetails"
+        @remove="removeFavorite"
       />
     </div>
     <span
@@ -56,6 +57,10 @@ export default {
       } else {
         this.showDetailsFor = id;
       }
+    },
+    removeFavorite(id) {
+      let favoriteIndex = this.userFavorites.findIndex(fav => fav === id);
+      this.userFavorites.splice(favoriteIndex, 1);
     }
   },
   computed: {

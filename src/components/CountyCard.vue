@@ -11,6 +11,9 @@
       <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
+    <div class="remove-icn" @click="$emit('remove', countyData.OBJECTID)">
+      X
+    </div>
   </div>
 </template>
 
@@ -87,10 +90,15 @@ export default {
   padding: 0 2rem 0 2rem;
   margin-bottom: 1rem;
   cursor: pointer;
+  position: relative;
 }
 .county-card:hover {
   transform: scale(1.01);
 }
+.county-card:hover .remove-icn {
+  display: flex;
+}
+
 .details-box {
   background-color: white;
   border-radius: 15px;
@@ -103,6 +111,25 @@ export default {
   font-size: 14px;
   text-align: left;
 }
+.remove-icn {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: grey;
+  right: -1rem;
+  top: -1rem;
+  color: white;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  cursor: pointer;
+}
+.remove-icn:hover {
+  transform: scale(1.1);
+}
+
 @media (max-width: 400px) {
   .county-card {
     padding: 0 0.5rem 0 0.5rem;
