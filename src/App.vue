@@ -37,11 +37,14 @@ export default {
     rkiApi
       .fetchRelevantData()
       .then(res => {
-        console.log(res);
         this.coronaFeatures = res.data.features.sort(
           (a, b) => a.attributes.cases7_per_100k - b.attributes.cases7_per_100k
         );
       })
+      .catch(e => console.log(e));
+    rkiApi
+      .fetchAllData()
+      .then(res => console.log(res))
       .catch(e => console.log(e));
   },
   methods: {
