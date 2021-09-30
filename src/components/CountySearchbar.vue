@@ -6,6 +6,13 @@
     >
       X
     </button>
+    <div id="results-field">
+      <ul>
+        <li v-for="result in results" :key="result.OBJECTID">
+          {{ result.county }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
@@ -22,6 +29,16 @@ export default {
       required: true
     }
   },
+  computed: {
+    results() {
+      if (!this.searchInput) return [];
+      return this.allCounties.filter(county => {
+        return this.searchInput
+          .toLowerCase()
+          .split(" ")
+          .every(v => county.county.toLowerCase().includes(v));
+      });
+    }
   }
 };
 </script>
