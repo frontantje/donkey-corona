@@ -11,17 +11,19 @@
     </div>
 
     <div id="results-field">
-      <ul>
-        <li v-for="result in results" :key="result.OBJECTID">
-          {{ result.county }}
-        </li>
-      </ul>
+      <ResultEntry
+        v-for="result in results"
+        :key="result.OBJECTID"
+        :county="result"
+      />
     </div>
   </div>
 </template>
 <script>
+import ResultEntry from "@/components/ResultEntry.vue";
 export default {
   name: "CountySearchbar",
+  components: { ResultEntry },
   data() {
     return {
       searchInput: ""
