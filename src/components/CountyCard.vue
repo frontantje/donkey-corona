@@ -11,7 +11,10 @@
       <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
-    <div class="remove-icn grow" @click="$emit('remove', countyData.OBJECTID)">
+    <div
+      class="remove-icn grow grey-btn"
+      @click="$emit('remove', countyData.OBJECTID)"
+    >
       X
     </div>
   </div>
@@ -112,14 +115,9 @@ export default {
   position: absolute;
   width: 2rem;
   height: 2rem;
-  border-radius: 100%;
-  background-color: grey;
   right: -1rem;
   top: -1rem;
-  color: white;
   display: none;
-  align-items: center;
-  justify-content: center;
   z-index: 5;
 }
 

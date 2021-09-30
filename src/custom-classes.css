@@ -7,3 +7,12 @@
 .grow-abit:hover {
   transform: scale(1.01);
 }
+.grey-btn {
+  background: grey;
+  border-radius: 100%;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
