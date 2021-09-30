@@ -1,21 +1,23 @@
 <template>
-  <h1>Donkey Corona Dashboard</h1>
-  <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
-  <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
+  <div id="content-wrapper">
+    <h1>Donkey Corona Dashboard</h1>
+    <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
+    <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
 
-  <div id="cards-container" v-if="coronaFeatures">
-    <CountyCard
-      v-for="feature in coronaFeatures"
-      :countyData="feature"
-      :key="feature.attributes.OBJECTID"
-      :showDetailsFor="showDetailsFor"
-      @clicked="openDetails"
-    />
+    <div id="cards-container" v-if="coronaFeatures">
+      <CountyCard
+        v-for="feature in coronaFeatures"
+        :countyData="feature"
+        :key="feature.attributes.OBJECTID"
+        :showDetailsFor="showDetailsFor"
+        @clicked="openDetails"
+      />
+    </div>
+    <span
+      >Quelle:
+      <a href="https://npgeo-corona-npgeo-de.hub.arcgis.com/">NPGEO-DE</a></span
+    >
   </div>
-  <span
-    >Quelle:
-    <a href="https://npgeo-corona-npgeo-de.hub.arcgis.com/">NPGEO-DE</a></span
-  >
 </template>
 
 <script>
