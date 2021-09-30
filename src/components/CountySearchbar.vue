@@ -10,11 +10,12 @@
       </button>
     </div>
 
-    <div id="results-field">
+    <div v-if="results" id="results-field">
       <ResultEntry
         v-for="result in results"
         :key="result.OBJECTID"
         :county="result"
+        @click="$emit('add-favorite', result.OBJECTID)"
       />
     </div>
   </div>

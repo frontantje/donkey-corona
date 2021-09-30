@@ -15,6 +15,7 @@
       <CountySearchbar
         v-else
         @close-search="showSearchbar = false"
+        @add-favorite="addFavorite"
         :all-counties="allCounties"
       />
     </div>
@@ -79,6 +80,10 @@ export default {
     removeFavorite(id) {
       let favoriteIndex = this.userFavorites.findIndex(fav => fav === id);
       this.userFavorites.splice(favoriteIndex, 1);
+    },
+    addFavorite(id) {
+      if (this.userFavorites.includes(id)) return;
+      this.userFavorites.push(id);
     }
   },
   computed: {
