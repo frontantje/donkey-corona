@@ -1,6 +1,6 @@
 <template>
   <div
-    class="county-card"
+    class="county-card grow-abit"
     :style="styleObject"
     @click="$emit('clicked', countyData.OBJECTID)"
   >
@@ -11,7 +11,7 @@
       <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
-    <div class="remove-icn" @click="$emit('remove', countyData.OBJECTID)">
+    <div class="remove-icn grow" @click="$emit('remove', countyData.OBJECTID)">
       X
     </div>
   </div>
@@ -89,12 +89,9 @@ export default {
   border-radius: 15px;
   padding: 0 2rem 0 2rem;
   margin-bottom: 1rem;
-  cursor: pointer;
   position: relative;
 }
-.county-card:hover {
-  transform: scale(1.01);
-}
+
 .county-card:hover .remove-icn {
   display: flex;
 }
@@ -124,10 +121,6 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 5;
-  cursor: pointer;
-}
-.remove-icn:hover {
-  transform: scale(1.1);
 }
 
 @media (max-width: 400px) {
