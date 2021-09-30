@@ -10,7 +10,7 @@
       </button>
     </div>
 
-    <div v-if="results" id="results-field">
+    <div v-if="results && searchInput" id="results-field" class="container">
       <ResultEntry
         v-for="result in results"
         :key="result.OBJECTID"
@@ -71,8 +71,10 @@ export default {
 }
 #results-field {
   max-height: 250px;
+  min-height: 50px;
   margin-top: 1rem;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-left: 5px;
   padding-right: 5px;
 }
