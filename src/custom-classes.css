@@ -17,3 +17,12 @@
   justify-content: center;
   border: none;
 }
+.container {
+  width: 500px;
+  margin: 2rem 0 0 0;
+}
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+}

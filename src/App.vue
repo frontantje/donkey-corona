@@ -134,10 +134,6 @@ export default {
   margin-left: auto;
   margin-right: auto;
 }
-.container {
-  width: 500px;
-  margin: 2rem 0 0 0;
-}
 
 h1 {
   margin: 0 0 1rem 0;
@@ -151,9 +147,7 @@ h2 {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  .container {
-    width: 100%;
-  }
+
   #app {
     margin-top: 0;
   }
