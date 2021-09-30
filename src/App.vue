@@ -4,11 +4,11 @@
     <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
     <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
 
-    <div id="cards-container" v-if="coronaFeatures">
+    <div id="cards-container" v-if="shownCounties">
       <CountyCard
-        v-for="feature in coronaFeatures"
-        :countyData="feature"
-        :key="feature.attributes.OBJECTID"
+        v-for="county in shownCounties"
+        :countyData="county"
+        :key="county.OBJECTID"
         :showDetailsFor="showDetailsFor"
         @clicked="openDetails"
       />
@@ -31,23 +31,18 @@ export default {
   },
   data() {
     return {
-      coronaFeatures: [],
       showDetailsFor: null,
       allCounties: []
     };
   },
+
   mounted() {
     rkiApi
-      .fetchRelevantData()
-      .then(res => {
-        this.coronaFeatures = res.data.features.sort(
-          (a, b) => a.attributes.cases7_per_100k - b.attributes.cases7_per_100k
-        );
-      })
-      .catch(e => console.log(e));
-    rkiApi
       .fetchAllData()
-      .then(res => (this.allCounties = res.data.features))
+      .then(
+        res =>
+          (this.allCounties = res.data.features.map(item => item.attributes))
+      )
       .catch(e => console.log(e));
   },
   methods: {
@@ -61,8 +56,16 @@ export default {
   },
   computed: {
     lastUpdate() {
-      if (!this.coronaFeatures[0]) return;
-      return this.coronaFeatures[0].attributes.last_update;
+      if (!this.shownCounties[0]) return;
+      return this.shownCounties[0].last_update;
+    },
+    userFavorites() {
+      return [41, 5, 38, 62];
+    },
+    shownCounties() {
+      return this.allCounties.filter(
+        county => this.userFavorites.indexOf(county.OBJECTID) > -1
+      );
     }
   }
 };

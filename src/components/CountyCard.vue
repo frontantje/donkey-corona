@@ -2,14 +2,14 @@
   <div
     class="county-card"
     :style="styleObject"
-    @click="$emit('clicked', displayData.OBJECTID)"
+    @click="$emit('clicked', countyData.OBJECTID)"
   >
-    <h3>{{ displayData.county }}: {{ displayData.cases7_per_100k_txt }}</h3>
+    <h3>{{ countyData.county }}: {{ countyData.cases7_per_100k_txt }}</h3>
     <div class="details-box" v-if="showDetails">
-      <p>Fälle gesamt: {{ displayData.cases }}</p>
-      <p>Neuinfektionen 7 T: {{ displayData.cases7_lk }}</p>
-      <p>Fälle/100k EW: {{ Math.round(displayData.cases_per_100k) }}</p>
-      <p>Todesfälle: {{ displayData.deaths }}</p>
+      <p>Fälle gesamt: {{ countyData.cases }}</p>
+      <p>Neuinfektionen 7 T: {{ countyData.cases7_lk }}</p>
+      <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
+      <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
   </div>
 </template>
@@ -28,14 +28,12 @@ export default {
     }
   },
   computed: {
-    displayData() {
-      return this.countyData.attributes;
-    },
     showDetails() {
-      return this.showDetailsFor === this.displayData.OBJECTID;
+      return this.showDetailsFor === this.countyData.OBJECTID;
     },
     gravityOfTheSituation() {
-      let gravity = this.displayData.cases7_per_100k;
+      let gravity = this.countyData.cases7_per_100k;
+      if (!gravity) return 0;
       if (gravity <= 5) {
         return 0;
       } else if (gravity > 5 && gravity <= 25) {
