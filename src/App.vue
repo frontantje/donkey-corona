@@ -12,7 +12,7 @@
       >
         +
       </button>
-      <CountySearchbar v-else />
+      <CountySearchbar v-else @close-search="showSearchbar = false" />
     </div>
 
     <div class="container" v-if="shownCounties">
