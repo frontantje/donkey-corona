@@ -32,8 +32,12 @@ export default {
   data() {
     return {
       showDetailsFor: null,
-      allCounties: []
+      allCounties: [],
+      userFavorites: []
     };
+  },
+  created() {
+    this.userFavorites = [41, 5, 38, 62];
   },
 
   mounted() {
@@ -59,9 +63,7 @@ export default {
       if (!this.shownCounties[0]) return;
       return this.shownCounties[0].last_update;
     },
-    userFavorites() {
-      return [41, 5, 38, 62];
-    },
+
     shownCounties() {
       return this.allCounties.filter(
         county => this.userFavorites.indexOf(county.OBJECTID) > -1
