@@ -65,9 +65,9 @@ export default {
     },
 
     shownCounties() {
-      return this.allCounties.filter(
-        county => this.userFavorites.indexOf(county.OBJECTID) > -1
-      );
+      return this.allCounties
+        .filter(county => this.userFavorites.indexOf(county.OBJECTID) > -1)
+        .sort((a, b) => a.cases7_per_100k - b.cases7_per_100k);
     }
   }
 };
