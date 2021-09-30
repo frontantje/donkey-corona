@@ -3,9 +3,19 @@
     <h1>Donkey Corona Dashboard</h1>
     <h2>(jetzt auch mit anderen Landkreisen)</h2>
     <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
-    <button id="add-btn" class="grow grey-btn">+</button>
+    <div class="container">
+      <button
+        v-if="!showSearchbar"
+        @click="showSearchbar = true"
+        id="add-btn"
+        class="grow grey-btn"
+      >
+        +
+      </button>
+      <CountySearchbar v-else />
+    </div>
 
-    <div id="cards-container" v-if="shownCounties">
+    <div class="container" v-if="shownCounties">
       <CountyCard
         v-for="county in shownCounties"
         :countyData="county"
@@ -24,18 +34,21 @@
 
 <script>
 import CountyCard from "./components/CountyCard.vue";
+import CountySearchbar from "./components/CountySearchbar.vue";
 import * as rkiApi from "./API/rki.js";
 
 export default {
   name: "App",
   components: {
-    CountyCard
+    CountyCard,
+    CountySearchbar
   },
   data() {
     return {
       showDetailsFor: null,
       allCounties: [],
-      userFavorites: []
+      userFavorites: [],
+      showSearchbar: false
     };
   },
   created() {
