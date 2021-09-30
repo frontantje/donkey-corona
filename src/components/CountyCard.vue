@@ -11,12 +11,12 @@
       <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
-    <div
+    <button
       class="remove-icn grow grey-btn"
       @click="$emit('remove', countyData.OBJECTID)"
     >
       X
-    </div>
+    </button>
   </div>
 </template>
 

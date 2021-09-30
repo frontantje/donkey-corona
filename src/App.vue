@@ -1,9 +1,9 @@
 <template>
   <div id="content-wrapper">
     <h1>Donkey Corona Dashboard</h1>
-    <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
+    <h2>(jetzt auch mit anderen Landkreisen)</h2>
     <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
-    <div role="button" id="add-btn" class="grow grey-btn">+</div>
+    <button id="add-btn" class="grow grey-btn">+</button>
 
     <div id="cards-container" v-if="shownCounties">
       <CountyCard
@@ -103,6 +103,7 @@ export default {
   border-radius: 100%;
   background-color: grey;
   font-size: 2rem;
+  margin-top: 1rem;
 }
 #cards-container {
   width: 500px;
