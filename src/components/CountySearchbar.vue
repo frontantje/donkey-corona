@@ -15,6 +15,13 @@ export default {
     return {
       searchInput: ""
     };
+  },
+  props: {
+    allCounties: {
+      type: Array,
+      required: true
+    }
+  },
   }
 };
 </script>
