@@ -80,6 +80,11 @@ export default {
   align-items: center;
   text-align: center;
 }
+#content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #cards-container {
   width: 500px;
   margin: 2rem 0 2rem 0;
