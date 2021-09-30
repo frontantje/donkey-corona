@@ -3,6 +3,7 @@
     <h1>Donkey Corona Dashboard</h1>
     <h2>(denn wen interessieren schon die anderen Landkreise...?)</h2>
     <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
+    <div role="button" id="add-btn" class="grow grey-btn">+</div>
 
     <div id="cards-container" v-if="shownCounties">
       <CountyCard
@@ -94,6 +95,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+#add-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
+  background-color: grey;
+  font-size: 2rem;
 }
 #cards-container {
   width: 500px;
