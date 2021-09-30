@@ -32,7 +32,8 @@ export default {
   data() {
     return {
       coronaFeatures: [],
-      showDetailsFor: null
+      showDetailsFor: null,
+      allCounties: []
     };
   },
   mounted() {
@@ -46,7 +47,7 @@ export default {
       .catch(e => console.log(e));
     rkiApi
       .fetchAllData()
-      .then(res => console.log(res))
+      .then(res => (this.allCounties = res.data.features))
       .catch(e => console.log(e));
   },
   methods: {
