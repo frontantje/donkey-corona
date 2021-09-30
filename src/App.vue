@@ -97,38 +97,34 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 #add-btn {
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
   background-color: grey;
   font-size: 2rem;
-  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-#cards-container {
+.container {
   width: 500px;
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0 0 0;
 }
-@media (max-width: 500px) {
-  #cards-container {
-    width: 100%;
-  }
-}
+
 h1 {
   margin: 0 0 1rem 0;
 }
 h2 {
   margin: 0 0 0.5rem 0;
 }
-#cards-container {
-  width: 500px;
-}
+
 @media (max-width: 500px) {
   #content-wrapper {
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  #cards-container {
+  .container {
     width: 100%;
   }
   #app {
