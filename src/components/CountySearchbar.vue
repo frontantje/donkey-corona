@@ -69,8 +69,11 @@ export default {
   box-sizing: border-box;
 }
 #results-field {
-  max-height: 300px;
+  max-height: 250px;
+  margin-top: 1rem;
   overflow: scroll;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .grey-btn {
   width: 2rem;
