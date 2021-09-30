@@ -16,7 +16,7 @@
         v-else
         @close-search="showSearchbar = false"
         @add-favorite="addFavorite"
-        :all-counties="allCounties"
+        :all-counties="allCountiesMinusFavorites"
       />
     </div>
 
@@ -96,6 +96,11 @@ export default {
       return this.allCounties
         .filter(county => this.userFavorites.indexOf(county.OBJECTID) > -1)
         .sort((a, b) => a.cases7_per_100k - b.cases7_per_100k);
+    },
+    allCountiesMinusFavorites() {
+      return this.allCounties.filter(
+        county => !this.userFavorites.includes(county.OBJECTID)
+      );
     }
   }
 };
