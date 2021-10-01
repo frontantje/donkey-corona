@@ -11,18 +11,18 @@
       <p>Fälle/100k EW: {{ Math.round(countyData.cases_per_100k) }}</p>
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
-    <button
-      class="remove-icn grow grey-btn"
+    <CustomButton
+      variant="remove"
       @click="$emit('remove', countyData.OBJECTID)"
-    >
-      X
-    </button>
+    ></CustomButton>
   </div>
 </template>
 
 <script>
+import CustomButton from "@/components/CustomButton.vue";
 export default {
   name: "CountyCard",
+  components: { CustomButton },
   props: {
     countyData: {
       type: Object
@@ -95,8 +95,8 @@ export default {
   position: relative;
 }
 
-.county-card:hover .remove-icn {
-  display: flex;
+.county-card:hover .custom-button {
+  display: block;
 }
 
 .details-box {
@@ -111,7 +111,7 @@ export default {
   font-size: 14px;
   text-align: left;
 }
-.remove-icn {
+.custom-button {
   position: absolute;
   width: 2rem;
   height: 2rem;

@@ -6,9 +6,7 @@
         placeholder="Suche nach Landkreisen/Regionen"
         id="county-search-input"
         type="text"
-      /><button @click="$emit('close-search')" class="grey-btn grow">
-        X
-      </button>
+      /><CustomButton variant="remove" @click="$emit('close-search')" />
     </div>
 
     <div v-if="results && searchInput" id="results-field" class="container">
@@ -23,9 +21,10 @@
 </template>
 <script>
 import ResultEntry from "@/components/ResultEntry.vue";
+import CustomButton from "@/components/CustomButton.vue";
 export default {
   name: "CountySearchbar",
-  components: { ResultEntry },
+  components: { ResultEntry, CustomButton },
   data() {
     return {
       searchInput: ""
@@ -50,7 +49,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 #search-area {
   display: flex;
   flex-direction: column;
@@ -79,7 +78,7 @@ export default {
   padding-left: 5px;
   padding-right: 5px;
 }
-.grey-btn {
+.custom-button {
   width: 2rem;
   height: 2rem;
 }
