@@ -8,6 +8,7 @@
         @click="showSearchbar = true"
         v-if="!showSearchbar"
         variant="add"
+        label="Suche starten"
       />
       <CountySearchbar
         v-else

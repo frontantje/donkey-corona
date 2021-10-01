@@ -1,5 +1,5 @@
 <template>
-  <button class="custom-button grow">
+  <button class="custom-button grow" :aria-label="label">
     <svg
       v-if="variant === 'add'"
       xmlns="http://www.w3.org/2000/svg"
@@ -23,6 +23,10 @@ export default {
   name: "CustomButton",
   props: {
     variant: {
+      type: String,
+      default: "add"
+    },
+    label: {
       type: String,
       default: "add"
     }

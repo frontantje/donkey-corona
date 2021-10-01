@@ -12,6 +12,7 @@
       <p>Todesfälle: {{ countyData.deaths }}</p>
     </div>
     <CustomButton
+      label="Landkreis entfernen"
       variant="remove"
       @click="$emit('remove', countyData.OBJECTID)"
     ></CustomButton>

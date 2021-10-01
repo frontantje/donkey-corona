@@ -1,7 +1,7 @@
 <template
   ><div class="result-entry">
     {{ county.county }}
-    <CustomButton variant="add" /></div
+    <CustomButton variant="add" label="Landkreis hinzufügen" /></div
 ></template>
 <script>
 import CustomButton from "@/components/CustomButton.vue";

@@ -6,7 +6,11 @@
         placeholder="Suche nach Landkreisen/Regionen"
         id="county-search-input"
         type="text"
-      /><CustomButton variant="remove" @click="$emit('close-search')" />
+      /><CustomButton
+        variant="remove"
+        label="Suche schließen"
+        @click="$emit('close-search')"
+      />
     </div>
 
     <div v-if="results && searchInput" id="results-field" class="container">
