@@ -66,7 +66,7 @@ export default {
   border-radius: 15px;
   height: 3rem;
   font-size: 1.8rem;
-  width: 100%;
+  width: 85%;
   margin-right: 1rem;
   box-sizing: border-box;
 }
@@ -82,5 +82,11 @@ export default {
 .grey-btn {
   width: 2rem;
   height: 2rem;
+}
+@media (max-width: 500px) {
+  #county-search-input {
+    height: 2rem;
+    font-size: 1rem;
+  }
 }
 </style>

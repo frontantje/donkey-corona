@@ -36,4 +36,14 @@ export default {
 .grey-btn {
   font-size: 1.5rem;
 }
+@media (max-width: 500px) {
+  .result-entry {
+    font-size: 1rem;
+  }
+  .grey-btn {
+    font-size: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
 </style>
