@@ -19,14 +19,15 @@
     </div>
 
     <div class="container" v-if="shownCounties">
-      <CountyCard
-        v-for="county in shownCounties"
-        :countyData="county"
-        :key="county.OBJECTID"
-        :showDetailsFor="showDetailsFor"
-        @clicked="openDetails"
-        @remove="removeFavorite"
-      />
+      <transition-group name="list">
+        <CountyCard
+          v-for="county in shownCounties"
+          :countyData="county"
+          :key="county.OBJECTID"
+          :showDetailsFor="showDetailsFor"
+          @clicked="openDetails"
+          @remove="removeFavorite"
+      /></transition-group>
     </div>
     <span
       >Quelle:
@@ -144,7 +145,14 @@ h1 {
 h2 {
   margin: 0 0 0.5rem 0;
 }
-
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.8s ease-in-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+}
 @media (max-width: 500px) {
   #content-wrapper {
     padding-left: 1rem;
