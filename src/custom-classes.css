@@ -8,17 +8,7 @@
   transform: scale(1.01);
   cursor: pointer;
 }
-.grey-btn {
-  background: grey;
-  border-radius: 100%;
-  color: white;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  padding: 0;
-}
+
 .container {
   width: 500px;
   margin: 2rem 0 0 0;

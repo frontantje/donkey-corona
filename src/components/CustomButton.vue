@@ -1,13 +1,9 @@
 <template>
-  <button class="custom-button grow grey-btn">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="white"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-    >
-      <path d="M24 9h-9v-9h-6v9h-9v6h9v9h6v-9h9z" />
+  <button class="custom-button grow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path
+        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7 14h-5v5h-4v-5h-5v-4h5v-5h4v5h5v4z"
+      />
     </svg></button
 ></template>
 <script>
@@ -21,3 +17,13 @@ export default {
   }
 };
 </script>
+<style scoped>
+.custom-button {
+  border: none;
+  padding: 0;
+  background: none;
+}
+svg {
+  fill: grey;
+}
+</style>

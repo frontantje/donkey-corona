@@ -1,14 +1,13 @@
 <template
   ><div class="result-entry">
     {{ county.county }}
-    <button class="grey-btn grow">
-      +
-    </button>
-  </div></template
->
+    <CustomButton variant="add" /></div
+></template>
 <script>
+import CustomButton from "@/components/CustomButton.vue";
 export default {
   name: "ResultEntry",
+  components: { CustomButton },
   props: {
     county: {
       type: Object,
@@ -33,15 +32,15 @@ export default {
   border-color: black;
 }
 
-.grey-btn {
-  font-size: 1.5rem;
+.custom-button {
+  height: 2rem;
+  width: 2rem;
 }
 @media (max-width: 500px) {
   .result-entry {
     font-size: 1rem;
   }
-  .grey-btn {
-    font-size: 1rem;
+  .custom-button {
     height: 1.5rem;
     width: 1.5rem;
   }
