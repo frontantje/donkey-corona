@@ -124,9 +124,10 @@ export default {
 @media (max-width: 400px) {
   .county-card {
     padding: 0 0.5rem 0 0.5rem;
+    flex-direction: column;
   }
   .details-box {
-    min-width: 45%;
+    margin-top: 0;
   }
 }
 </style>
