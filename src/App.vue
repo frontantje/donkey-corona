@@ -57,16 +57,19 @@ export default {
     };
   },
   created() {
-    this.userFavorites = [41, 5, 38, 62];
+    if (!localStorage.favorites) {
+      this.userFavorites = [41, 5, 38, 62];
+    } else {
+      this.userFavorites = localStorage.favorites;
+    }
   },
 
   mounted() {
     rkiApi
       .fetchAllData()
-      .then(
-        res =>
-          (this.allCounties = res.data.features.map(item => item.attributes))
-      )
+      .then(res => {
+        this.allCounties = res.data.features.map(item => item.attributes);
+      })
       .catch(e => console.log(e));
   },
   methods: {
@@ -78,12 +81,20 @@ export default {
       }
     },
     removeFavorite(id) {
+      console.log("remove", typeof id);
       let favoriteIndex = this.userFavorites.findIndex(fav => fav === id);
       this.userFavorites.splice(favoriteIndex, 1);
+      this.updateStorage();
     },
     addFavorite(id) {
+      console.log("add", typeof id);
+
       if (this.userFavorites.includes(id)) return;
       this.userFavorites.push(id);
+      this.updateStorage();
+    },
+    updateStorage() {
+      localStorage.setItem("favorites", this.userFavorites);
     }
   },
   computed: {
@@ -94,12 +105,14 @@ export default {
 
     shownCounties() {
       return this.allCounties
-        .filter(county => this.userFavorites.indexOf(county.OBJECTID) > -1)
+        .filter(
+          county => !county.OBJECTID.toString().indexOf(this.userFavorites)
+        )
         .sort((a, b) => a.cases7_per_100k - b.cases7_per_100k);
     },
     allCountiesMinusFavorites() {
-      return this.allCounties.filter(
-        county => !this.userFavorites.includes(county.OBJECTID)
+      return this.allCounties.filter(county =>
+        this.userFavorites.includes(county.OBJECTID)
       );
     }
   }
