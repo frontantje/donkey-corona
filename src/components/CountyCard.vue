@@ -68,7 +68,7 @@ export default {
         case 2:
           return { "background-color": "rgb(255, 181, 52" };
         case 3:
-          return { "background-color": "rgb(212, 54, 36)" };
+          return { "background-color": "rgb(212, 54, 36)", color: "white" };
         case 4:
           return { "background-color": "rgb(149, 18, 20)", color: "white" };
         case 5:
