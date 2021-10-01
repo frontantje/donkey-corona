@@ -60,7 +60,7 @@ export default {
     if (!localStorage.favorites) {
       this.userFavorites = [41, 5, 38, 62];
     } else {
-      this.userFavorites = localStorage.favorites;
+      this.userFavorites = JSON.parse(localStorage.favorites);
     }
   },
 
@@ -81,20 +81,17 @@ export default {
       }
     },
     removeFavorite(id) {
-      console.log("remove", typeof id);
       let favoriteIndex = this.userFavorites.findIndex(fav => fav === id);
       this.userFavorites.splice(favoriteIndex, 1);
       this.updateStorage();
     },
     addFavorite(id) {
-      console.log("add", typeof id);
-
       if (this.userFavorites.includes(id)) return;
       this.userFavorites.push(id);
       this.updateStorage();
     },
     updateStorage() {
-      localStorage.setItem("favorites", this.userFavorites);
+      localStorage.setItem("favorites", JSON.stringify(this.userFavorites));
     }
   },
   computed: {
