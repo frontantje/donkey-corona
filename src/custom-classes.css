@@ -6,6 +6,7 @@
 }
 .grow-abit:hover {
   transform: scale(1.01);
+  cursor: pointer;
 }
 .grey-btn {
   background: grey;
