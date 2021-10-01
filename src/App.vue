@@ -4,14 +4,11 @@
     <h2>(jetzt auch mit anderen Landkreisen)</h2>
     <span>Zuletzt upgedatet: {{ lastUpdate }}</span>
     <div class="container">
-      <button
-        v-if="!showSearchbar"
+      <CustomButton
         @click="showSearchbar = true"
-        id="add-btn"
-        class="grow grey-btn"
-      >
-        +
-      </button>
+        v-if="!showSearchbar"
+        variant="add"
+      />
       <CountySearchbar
         v-else
         @close-search="showSearchbar = false"
@@ -40,13 +37,15 @@
 <script>
 import CountyCard from "./components/CountyCard.vue";
 import CountySearchbar from "./components/CountySearchbar.vue";
+import CustomButton from "@/components/CustomButton.vue";
 import * as rkiApi from "./API/rki.js";
 
 export default {
   name: "App",
   components: {
     CountyCard,
-    CountySearchbar
+    CountySearchbar,
+    CustomButton
   },
   data() {
     return {
@@ -133,7 +132,7 @@ export default {
   justify-content: center;
 }
 
-#add-btn {
+.custom-button {
   width: 3rem;
   height: 3rem;
   border-radius: 100%;

@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: center;
   border: none;
+  padding: 0;
 }
 .container {
   width: 500px;
