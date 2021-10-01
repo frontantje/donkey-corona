@@ -105,14 +105,12 @@ export default {
 
     shownCounties() {
       return this.allCounties
-        .filter(
-          county => !county.OBJECTID.toString().indexOf(this.userFavorites)
-        )
+        .filter(county => this.userFavorites.includes(county.OBJECTID))
         .sort((a, b) => a.cases7_per_100k - b.cases7_per_100k);
     },
     allCountiesMinusFavorites() {
-      return this.allCounties.filter(county =>
-        this.userFavorites.includes(county.OBJECTID)
+      return this.allCounties.filter(
+        county => !this.userFavorites.includes(county.OBJECTID)
       );
     }
   }
