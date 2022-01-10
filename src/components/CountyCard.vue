@@ -21,6 +21,7 @@
 
 <script>
 import CustomButton from "@/components/CustomButton.vue";
+import gravityConfig from "@/gravity_config.js";
 export default {
   name: "CountyCard",
   components: { CustomButton },
@@ -34,50 +35,21 @@ export default {
       default: null
     }
   },
+
   computed: {
     showDetails() {
       return this.showDetailsFor === this.countyData.OBJECTID;
     },
     gravityOfTheSituation() {
       let gravity = this.countyData.cases7_per_100k;
-      if (!gravity) return 0;
-      if (gravity <= 5) {
-        return 0;
-      } else if (gravity > 5 && gravity <= 25) {
-        return 1;
-      } else if (gravity > 25 && gravity <= 50) {
-        return 2;
-      } else if (gravity > 50 && gravity <= 100) {
-        return 3;
-      } else if (gravity > 100 && gravity <= 250) {
-        return 4;
-      } else if (gravity > 250 && gravity <= 500) {
-        return 5;
-      } else if (gravity > 500) {
-        return 6;
-      } else {
-        return "";
-      }
+
+      return gravityConfig.findIndex(el => gravity <= el.cases_max);
     },
     styleObject() {
-      switch (this.gravityOfTheSituation) {
-        case 0:
-          return { "background-color": "rgb(255, 252, 205)" };
-        case 1:
-          return { "background-color": "rgb(255, 243, 128)" };
-        case 2:
-          return { "background-color": "rgb(255, 181, 52" };
-        case 3:
-          return { "background-color": "rgb(212, 54, 36)", color: "white" };
-        case 4:
-          return { "background-color": "rgb(149, 18, 20)", color: "white" };
-        case 5:
-          return { "background-color": "rgb(103, 18, 18)", color: "white" };
-        case 6:
-          return { "background-color": "rgb(221, 0, 133)", color: "white" };
-        default:
-          return {};
-      }
+      let backgroundColor =
+        gravityConfig[this.gravityOfTheSituation].backgroundColor;
+      let textColor = gravityConfig[this.gravityOfTheSituation].color;
+      return { "background-color": backgroundColor, color: textColor };
     }
   }
 };
